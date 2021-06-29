@@ -57,7 +57,8 @@ function finishGame() {
 
 function createRandomCircle() {
     const circle = document.createElement('div');
-
+    
+    const color = getRandomColor();
     const size = getRandomNumber(10, 60);
     const {width, height} = board.getBoundingClientRect();
     const x = getRandomNumber(0, width - size);
@@ -68,24 +69,19 @@ function createRandomCircle() {
     circle.style.height = `${size}px`;
     circle.style.top = `${y}px`;
     circle.style.left = `${x}px`;
+    circle.style.background = `${color}`;
+    circle.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`;
 
     board.append(circle);
 }
 
-color = getRandomColor();
-    circle.style.background = `linear-gradient(90deg, ${color} 0%, ${getRandomColor()} 60%, ${color} 200%)`;
-
-function getRandomColor() {
-    r = Math.floor(Math.random() * (256)),
-                g = Math.floor(Math.random() * (256)),
-                b = Math.floor(Math.random() * (256)),
-                color = '#' + r.toString(16) + g.toString(16) + b.toString(16);
-            }
-
-
-
 function getRandomNumber(min, max) {
     return Math.round(Math.random() * (max - min) + min);
+}
+
+function getRandomColor() {
+    const index = Math.floor(Math.random() * colors.length)
+    return colors[index]
 }
 
 
