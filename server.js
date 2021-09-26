@@ -14,7 +14,7 @@ app.get('/', function (req, res) {
 
 //add other routes below
 app.get('/about', function (req, res) {
-    res.sendFile(path.join(__dirname + 'views/about.html'));
+    res.sendFile(path.join(__dirname + 'about.html'));
 });
 
 app.listen(process.env.PORT || 8080);
